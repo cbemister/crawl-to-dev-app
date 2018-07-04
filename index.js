@@ -3,10 +3,7 @@ var prompt = require('prompt');
 var fs = require('fs');
 var pretty = require('pretty');
 
-
 //Trade Dev Env App
-
-let html = '';
 
 // Enter url to import html
 
