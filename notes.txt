@@ -1,0 +1,10 @@
+
+Trade Dev Env App
+
+- enter url to import html
+- crawl page to extract html
+- create file from crawl
+- either select the code that will be edited or choose an insertion point
+- create workspace file either blank or from selection
+- create live-server to display merged files
+- create test to qc changes on targeted page and other pages
