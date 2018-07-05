@@ -4,7 +4,6 @@ var fs = require('fs');
 var pretty = require('pretty');
 var scrape = require('website-scraper');
 
-
 //Trade Dev Env App
 
 // Enter url to import html

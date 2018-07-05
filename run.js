@@ -23,5 +23,3 @@ prompt.get(['folder'], function (err, result) {
     liveServer.start(params);
 
 });
-
-
