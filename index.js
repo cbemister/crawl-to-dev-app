@@ -29,7 +29,7 @@ prompt.get(['url'], function (err, result) {
             var fileContent = pretty(page.content);
 
             // The absolute path of the new file with its name
-            var filepath = "test.html";
+            var filepath = "./public/index.html";
 
             fs.writeFile(filepath, fileContent, (err) => {
                 if (err) throw err;
@@ -44,8 +44,6 @@ prompt.get(['url'], function (err, result) {
 });
 
 // - create file from crawl
-
-//console.log(html);
 
 // - either select the code that will be edited or choose an insertion point
 // - create workspace file either blank or from selection
