@@ -3,9 +3,12 @@ var prompt = require('prompt');
 var fs = require('fs');
 var pretty = require('pretty');
 var scrape = require('website-scraper');
-
-var websites = [];
-
+var Storage = require('node-storage');
+ 
+// this will synchronously create storage file and any necessary directories
+// or just load an existing file
+var Storage = require('node-storage');
+ 
 //Trade Dev Env App
 
 // Enter url to import html
@@ -37,20 +40,28 @@ prompt.get(['url', 'folder'], function (err, result) {
       //https://www.airdriedodge.com/
       //http://www.capitaljeep.com/
       //https://www.grovedodge.com/
+      //https://www.google.ca/
 
       // with promise
       scrape(options).then((result) => {
  
         /* some code here */
 
+        // this will synchronously create storage file and any necessary directories
+        // or just load an existing file
+        var store = new Storage('./folders.js');
+
+        console.log(options.directory);
+
+        store.put('website', {folderName: options.directory, });
+        //store.get('deeply.object.hello'); // 'world'
+
+
         const website = {
             folderName: options.directory,
             fileName: options[0].urls
         }
     
-        websites.push(website);
-
-        module.exports = websites;
 
       }).catch((err) => {
           /* some code here */
