@@ -4,6 +4,8 @@ var fs = require('fs');
 var pretty = require('pretty');
 var scrape = require('website-scraper');
 
+var websites = [];
+
 //Trade Dev Env App
 
 // Enter url to import html
@@ -34,12 +36,21 @@ prompt.get(['url', 'folder'], function (err, result) {
        
       //https://www.airdriedodge.com/
       //http://www.capitaljeep.com/
+      //https://www.grovedodge.com/
 
       // with promise
       scrape(options).then((result) => {
-          /* some code here */
+ 
+        /* some code here */
 
+        const website = {
+            folderName: options.directory,
+            fileName: options[0].urls
+        }
+    
+        websites.push(website);
 
+        module.exports = websites;
 
       }).catch((err) => {
           /* some code here */
@@ -59,6 +70,7 @@ prompt.get(['url', 'folder'], function (err, result) {
 // - create workspace file either blank or from selection
 // - create live-server to display merged files
 // - create test to qc changes on targeted page and other pages
+
 
 
 
