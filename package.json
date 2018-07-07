@@ -8,5 +8,15 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "ansi-styles": "^3.2.1",
+    "listdirs": "^3.1.1",
+    "live-server": "^1.2.0",
+    "node-storage": "0.0.7",
+    "pretty": "^2.0.0",
+    "prompt": "^1.0.0",
+    "prompt-skeleton": "^1.0.2",
+    "website-scraper": "^3.3.3"
+  }
 }

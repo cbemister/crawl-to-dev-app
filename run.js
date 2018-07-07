@@ -88,3 +88,27 @@ listdirs(basedir, function callback(err, list){
 
     }
 }, ignored); // include ignored list as 3rd Parameter (after callback)
+
+// const cpFile = require('cp-file');
+
+// let files =[{ 
+//     src: 'src/1.png',
+//     dis: 'dist/1.png'
+// },{ 
+//     src: 'src/2.png',
+//     dis: 'dist/2.png'
+// },{ 
+//     src: 'src/3.png',
+//     dis: 'dist/3.png'
+// },{ 
+//     src: 'src/4.png',
+//     dis: 'dist/4.png'
+// },{ 
+//     src: 'src/2.png',
+//     dis: 'dist/2.png'
+// }];
+
+// files.map(file => (async (source, destination) => {
+//     await cpFile(source, destination);
+//     console.log('File copied');
+// })(file.src, file.dis));
