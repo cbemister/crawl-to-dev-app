@@ -2,9 +2,10 @@
 Trade Dev Env App
 
 - enter url to import html
+    - allow for multiple urls
 - crawl page to extract html
     - give option to choose desktop or mobile or both 
-- create file from crawl
+- create files from crawl
 - create live-server to display merged files 
 
 - either select the code that will be edited or choose an insertion point

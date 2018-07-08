@@ -1,79 +1,98 @@
-var Crawler = require("js-crawler");
-var prompt = require('prompt');
-var fs = require('fs');
-var pretty = require('pretty');
-var scrape = require('website-scraper');
-var Storage = require('node-storage');
+// Crawl.js 
+const prompt = require('prompt');
+const wrap = require('prompt-skeleton')
+//const fs = require('fs');
+//const pretty = require('pretty');
+const scrape = require('website-scraper');
+//const Storage = require('node-storage');
+const Spinner = require('cli-spinner').Spinner;
+const launch = require('./launch.js');
  
-// this will synchronously create storage file and any necessary directories
-// or just load an existing file
-var Storage = require('node-storage');
- 
-//Trade Dev Env App
+const crawl = function () {
 
-// Enter url to import html
+    prompt.start();
 
-//
-// Start the prompt
-//
-prompt.start();
+    // http://www.google.com
 
-//
-// Get two properties from the user: url
-//
+    prompt.get(['url', 'folder'], function (err, result) {
+        
+        const spinner = new Spinner('Loading... %s');
+        spinner.setSpinnerString(11);
+        spinner.start();
 
-// http://www.google.com
-
-prompt.get(['url', 'folder'], function (err, result) {
-  
-    var options = {
-        urls: [result.url],
-        directory: './public/' + result.folder,
-        prettifyUrls: true,
-        request: {
-            headers: {
-              'User-Agent': 'Chrome 40.0 Win7 64-bit'
+        var options = {
+            urls: [result.url],
+            directory: './public/' + result.folder,
+            prettifyUrls: true,
+            request: {
+                headers: {
+                    'User-Agent': 'Chrome 40.0 Win7 64-bit'
+                }
             }
-          }
-      };
-       
-      //https://www.airdriedodge.com/
-      //http://www.capitaljeep.com/
-      //https://www.grovedodge.com/
-      //https://www.google.ca/
+        };
 
-      // with promise
-      scrape(options).then((result) => {
- 
-        /* some code here */
+        // with promise
+        scrape(options).then((result) => {
 
-        // this will synchronously create storage file and any necessary directories
-        // or just load an existing file
-        var store = new Storage('./folders.js');
+            /* some code here */
 
-        console.log(options.directory);
+            spinner.stop(true);
 
-        store.put('website', {folderName: options.directory, });
-        //store.get('deeply.object.hello'); // 'world'
+            //console.log('promise')
 
 
-        const website = {
-            folderName: options.directory,
-            fileName: options[0].urls
-        }
-    
+        }).catch((err) => {
+            /* some code here */
+        });
 
-      }).catch((err) => {
-          /* some code here */
-      });
-       
-      // or with callback
-      scrape(options, (error, result) => {
-          /* some code here */
-      });
-      
+        // or with callback
+        scrape(options, (error, result) => {
+            /* some code here */
 
-});
+
+            const prompt = wrap({
+                value: 0,
+                options: ['Yes', 'No', 'Exit'],
+                up: function () {
+                    this.value++
+                    this.value > 2 ? this.value = 0 : this.value
+                    this.render()
+                },
+                down: function () {
+                    this.value--
+                    this.value === -1 ? this.value = 2 : this.value
+                    this.render()
+                },
+                render: function () {
+                    this.out.write(`Would you like launch this website: ${style.bgBlue.open} ${this.options[this.value]} ${style.bgBlue.close}`)
+                }
+            }) 
+            
+            prompt
+                .then((val) => {
+                    // prompt succeeded, do something with the value
+            
+                    let script = ['crawl','launch','exit'];
+            
+                    if (val === 0) {
+                        launch();
+                    } else {
+                        return;
+                    }
+            
+                })
+                .catch((val) => {
+                    // prompt aborted, do something with the value
+                })
+
+        });
+
+
+    });
+
+}
+
+module.exports = crawl;
 
 // - create file from crawl
 
