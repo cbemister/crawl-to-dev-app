@@ -1,5 +1,5 @@
 // Crawl.js 
-const prompt = require('prompt');
+const promptSimple = require('prompt');
 const wrap = require('prompt-skeleton')
 //const fs = require('fs');
 //const pretty = require('pretty');
@@ -10,17 +10,19 @@ const launch = require('./launch.js');
  
 const crawl = function () {
 
-    prompt.start();
+    promptSimple.start();
 
     // http://www.google.com
 
-    prompt.get(['url', 'folder'], function (err, result) {
+    promptSimple.get(['url', 'folder'], function (err, result) {
+
+        let folder = result.folder;
         
         const spinner = new Spinner('Loading... %s');
         spinner.setSpinnerString(11);
         spinner.start();
 
-        var options = {
+        let options = {
             urls: [result.url],
             directory: './public/' + result.folder,
             prettifyUrls: true,
@@ -38,55 +40,25 @@ const crawl = function () {
 
             spinner.stop(true);
 
-            //console.log('promise')
+            //console.log('promise');
 
 
         }).catch((err) => {
             /* some code here */
+
+            //console.log(err);
+
         });
 
         // or with callback
         scrape(options, (error, result) => {
             /* some code here */
 
+            //console.log('call back');
 
-            const prompt = wrap({
-                value: 0,
-                options: ['Yes', 'No', 'Exit'],
-                up: function () {
-                    this.value++
-                    this.value > 2 ? this.value = 0 : this.value
-                    this.render()
-                },
-                down: function () {
-                    this.value--
-                    this.value === -1 ? this.value = 2 : this.value
-                    this.render()
-                },
-                render: function () {
-                    this.out.write(`Would you like launch this website: ${style.bgBlue.open} ${this.options[this.value]} ${style.bgBlue.close}`)
-                }
-            }) 
-            
-            prompt
-                .then((val) => {
-                    // prompt succeeded, do something with the value
-            
-                    let script = ['crawl','launch','exit'];
-            
-                    if (val === 0) {
-                        launch();
-                    } else {
-                        return;
-                    }
-            
-                })
-                .catch((val) => {
-                    // prompt aborted, do something with the value
-                })
+            launch(folder);
 
         });
-
 
     });
 
