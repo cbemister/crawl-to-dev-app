@@ -4,7 +4,16 @@ const wrap = require('prompt-skeleton')
 const listdirs = require('listdirs');
 const style = require('ansi-styles');
 const ignored = ['node_modules', '.git', 'css', 'js', 'images', 'fonts'];
-const basedir = __dirname + '/public/'; // or which ever base directory you prefer
+const path = require('path');
+//const basedir = __dirname + '/public/'; // or which ever base directory you prefer
+const basedir = path.join(__dirname, '../'); // or which ever base directory you prefer
+
+
+
+
+
+//path.join(__dirname, '../../../')
+
 
 const launch = function(folder) {
 
@@ -36,7 +45,7 @@ const launch = function(folder) {
     
         if (!folder) {
     
-            listdirs(basedir, function callback(err, list) {
+            listdirs(basedir + '/public/', function callback(err, list) {
     
                 if (err) {
                     console.log(err); // handle errors in your preferred way.

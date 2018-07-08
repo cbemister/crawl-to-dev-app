@@ -6,7 +6,7 @@ const wrap = require('prompt-skeleton')
 const scrape = require('website-scraper');
 //const Storage = require('node-storage');
 const Spinner = require('cli-spinner').Spinner;
-const launch = require('./launch.js');
+const launch = require('../functionality/launch.js');
  
 const crawl = function () {
 
