@@ -1,6 +1,6 @@
 // App.js
-const crawl = require('./functionality/crawl.js');
-const launch = require('./functionality/launch.js');
+const crawl = require('./crawl.js');
+const launch = require('./launch.js');
 const wrap = require('prompt-skeleton');
 const style = require('ansi-styles');
 global.__basedir = __dirname;
