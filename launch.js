@@ -103,12 +103,10 @@ const launch = function(folder) {
         } else {
 
             data.params.root = "./public/" + folder;
-
-            console.log(data.params.root);
     
             const prompt = wrap({
                 value: 0,
-                options: ['Yes', 'No', 'Exit'],
+                options: ['Yes', 'Exit', 'No'],
                 up: function () {
     
                     this.value++

@@ -7,7 +7,7 @@ global.__basedir = __dirname;
 
 const prompt = wrap({
     value: 0,
-    options: ['Crawl a new web page', 'Launch an existing web page', 'Exit'],
+    options: ['Crawl a new web page', 'Exit', 'Launch an existing web page'],
     up: function () {
         this.value++
         this.value > 2 ? this.value = 0 : this.value
@@ -32,7 +32,7 @@ prompt
         if (val === 0) {
             crawl();
 
-        } else if (val === 1) {
+        } else if (val === 2) {
             launch();
         } else {
             return;

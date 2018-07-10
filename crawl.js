@@ -1,12 +1,15 @@
 // Crawl.js 
 const promptSimple = require('prompt');
 const wrap = require('prompt-skeleton')
-//const fs = require('fs');
+const fs = require('fs');
 //const pretty = require('pretty');
 const scrape = require('website-scraper');
 //const Storage = require('node-storage');
 const Spinner = require('cli-spinner').Spinner;
 const launch = require('./launch.js');
+
+//Load the library and specify options
+const replace = require('replace-in-file');
  
 const crawl = function () {
 
@@ -56,7 +59,37 @@ const crawl = function () {
 
             //console.log('call back');
 
-            launch(folder);
+            // const options = {
+            //     files: './public/' + folder + '/index.html',
+            //     from: /<head>/g,
+            //     to: '<link href="./cssChanges.css" rel="stylesheet" type="text/css"><head>',
+            //   };
+
+              const options = {
+                files: './public/' + folder + '/index.html',
+                from: [/<head>/g, /<\/body>/g ] ,
+                to: ['<link href="./_cssChanges.css" rel="stylesheet" type="text/css"><head>', '<script src="./_jsChanges.js"></script></body>' ] 
+              };
+
+              replace(options)
+              .then(changes => {
+                //console.log('Modified files:', changes.join(', '));
+
+                fs.open('./public/' + folder + '/_jsChanges.js', 'w', function (err, file) {
+                    if (err) throw err;
+                  });
+
+                fs.open('./public/' + folder + '/_cssChanges.css', 'w', function (err, file) {
+                    if (err) throw err;
+                  });
+
+                launch(folder);
+              })
+              .catch(error => {
+                console.error('Error occurred:', error);
+              });
+
+
 
         });
 
