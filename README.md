@@ -1,68 +1,58 @@
 # crawl-to-dev-app
 
-# Project Title
+A command-line node application to create a local development environment (or sandbox) based on a live 3rd party webpage.  I would like to thank s0ph1e for her work on the npm website-scraper package.  Without it, I would not have been able to create this application. 
 
-One Paragraph of project description goes here
+Disclaimer:  This is the first node application that I have built.  
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+You should be able to clone the repo than run npm install to install the dependencies.  
 
-### Prerequisites
+### Installing the app
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
+Run
 
 ```
-Clone the rep
+npm install
 ```
 
-And repeat
+### Launching the app
+
+Run
 
 ```
-until finished
+node app
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+### Using the app
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Choose
 
 ```
-Give an example
+"Launch an existing website" or "Crawl a new web page"  
 ```
 
-### And coding style tests
+### Crawling a webpage
 
-Explain what these tests test and why
+Enter a url
 
 ```
-Give an example
+https://www.google.com
+```
+Enter a unique folder name.  Warning: The app will fail if the folder name that is entered already exists. 
+
+```
+google-search
 ```
 
-## Deployment
+### Launch the sandbox
 
-Add additional notes about how to deploy this on a live system
+You can then choose to either launch the webpage or exit.  You can also choose to launch a previously crawled webpage after launching the application 
 
-## Built With
+```
+"Yes" or "No" or "Exit" 
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -70,9 +60,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Chris Bemister** - *Initial work*
 
 ## License
 
@@ -80,6 +68,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* https://www.npmjs.com/~s0ph1e
+* https://www.npmjs.com/package/website-scraper
+
