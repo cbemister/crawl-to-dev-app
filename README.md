@@ -10,23 +10,17 @@ You should be able to clone the repo than run npm install to install the depende
 
 ### Installing the app
 
-Run
-
 ```
 npm install
 ```
 
 ### Launching the app
 
-Run
-
 ```
 node app
 ```
 
 ### Using the app
-
-Choose
 
 ```
 "Launch an existing website" or "Crawl a new web page"  
