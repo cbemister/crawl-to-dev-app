@@ -39,14 +39,21 @@ Enter a unique folder name.  Warning: The app will fail if the folder name that 
 google-search
 ```
 
-### Launch the sandbox
+### Launching the sandbox
 
-You can then choose to either launch the webpage or exit.  You can also choose to launch a previously crawled webpage after launching the application 
+You can choose to either launch a sandbox immediately after the webpage has been crawled or after starting the app.  
 
 ```
 "Yes" or "No" or "Exit" 
 ```
 
+### Using the sandbox
+
+Once the sandbox has been created and launched, you can edit either the "jsChanges.js" or "cssChanges.css" files that were created in the root of the folder.  You can also edit any of the other files that you would like, but these two files were created to give you a clean slate to work with.   
+ 
+```
+"jsChanges.js" or "cssChanges.css" file in the /public/project-name folder   
+```
 
 ## Versioning
 
