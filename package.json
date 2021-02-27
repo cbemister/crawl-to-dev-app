@@ -13,7 +13,7 @@
     "ansi-styles": "^3.2.1",
     "cli-spinner": "^0.2.8",
     "listdirs": "^3.1.1",
-    "live-server": "^1.2.0",
+    "live-server": "^1.2.1",
     "node-key-sender": "^1.0.10",
     "node-storage": "0.0.7",
     "pretty": "^2.0.0",
