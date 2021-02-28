@@ -4,7 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "start": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch './public/%INIT_CWD%/_index.html' edit.v2.js --name=%INIT_CWD%",
+    "watch": "nodemon --watch public/original-2/_index.html edit.js",
+    "check-env": "node -e console.log(process.env)"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,12 @@
     "pretty": "^2.0.0",
     "prompt": "^1.0.0",
     "prompt-skeleton": "^1.0.2",
-    "replace-in-file": "^3.4.0",
+    "replace-in-file": "^6.2.0",
     "website-scraper": "^3.3.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "jquery": "^3.5.1",
+    "nodemon": "^2.0.7"
   }
 }
