@@ -64,7 +64,7 @@ const crawl = function () {
         files: "./public/" + folder + "/index.html",
         from: [/<\/head>/g, /<\/body>/g],
         to: [
-          '<link href="./_cssChanges.css" rel="stylesheet" type="text/css"></head>',
+          '<link href="./_cssChanges.css" rel="stylesheet" type="text/css"><link href="./tailwind.css" rel="stylesheet type="text/css""></head>',
           '<script src="./_jsChanges.js"></script></body>',
         ],
       };
@@ -91,14 +91,6 @@ const crawl = function () {
 
           fs.open(
             "./public/" + folder + "/_index.html",
-            "w",
-            function (err, file) {
-              if (err) throw err;
-            }
-          );
-
-          fs.open(
-            "./public/" + folder + "/compiled.html.min",
             "w",
             function (err, file) {
               if (err) throw err;
