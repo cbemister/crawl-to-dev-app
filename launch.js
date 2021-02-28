@@ -5,6 +5,8 @@ const listdirs = require("listdirs");
 const style = require("ansi-styles");
 const ignored = ["node_modules", ".git", "css", "js", "images", "fonts"];
 const path = require("path");
+
+const watch = require('./watch.js');
 const basedir = path.join(__dirname); // or which ever base directory you prefer
 
 //path.join(__dirname, '../../../')
@@ -79,7 +81,7 @@ const launch = function (folder) {
             prompt
               .then((val) => {
                 // prompt succeeded, do something with the value
-
+                watch(folder);
                 liveServer.start(data.params);
               })
               .catch((val) => {

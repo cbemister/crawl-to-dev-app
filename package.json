@@ -5,9 +5,12 @@
   "main": "app.js",
   "scripts": {
     "start": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch './public/%INIT_CWD%/_index.html' edit.v2.js --name=%INIT_CWD%",
-    "watch": "nodemon --watch public/original-2/_index.html edit.js",
-    "check-env": "node -e console.log(process.env)"
+    "dev-b": "nodemon --watch '%INIT_CWD%/_index.html' edit_v2.js",
+    "dev": "npm-run-all --parallel watch live --name=%npm_config_name%",
+    "live": " live-server --open=public/%npm_config_name%/ --watch=public/%npm_config_name%/index.html",
+    "watch": "nodemon --watch public/%npm_config_name%/_index.html edit.js %npm_config_name%",
+    "watch-b": "nodemon --watch public/original-2/_index.html edit.js",
+    "check-env": "node -e console.log(process.argv[1])"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +31,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "jquery": "^3.5.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.7.0"
   }
 }
