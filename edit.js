@@ -6,11 +6,6 @@ const path = require("path");
 const folder = process.argv[2];
 const basedir = path.join(__dirname + "/public/" + folder + "/"); // or which ever base directory you prefer
 
-//console.log(process.env)
-
-console.log(__dirname)
-console.log(process.cwd())
-
 const files = [basedir + "index.html", basedir + "_index.html"];
 
   async.map(files, fs.readFile, function (err, files) {

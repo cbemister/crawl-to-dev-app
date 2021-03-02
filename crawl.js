@@ -64,8 +64,8 @@ const crawl = function () {
         files: "./public/" + folder + "/index.html",
         from: [/<\/head>/g, /<\/body>/g],
         to: [
-          '<link href="./_cssChanges.css" rel="stylesheet" type="text/css"><link href="./tailwind.css" rel="stylesheet type="text/css""></head>',
-          '<script src="./_jsChanges.js"></script></body>',
+          '<link href="./assets/dist/_styles.css" rel="stylesheet" type="text/css"><link href="./assets/src/tailwind.css" rel="stylesheet type="text/css""></head>',
+          '<script src="./_scripts.js"></script></body>',
         ],
       };
 
@@ -74,7 +74,7 @@ const crawl = function () {
           //console.log('Modified files:', changes.join(', '));
 
           fs.open(
-            "./public/" + folder + "/_jsChanges.js",
+            "./public/" + folder + "/_scripts.js",
             "w",
             function (err, file) {
               if (err) throw err;
@@ -82,7 +82,7 @@ const crawl = function () {
           );
 
           fs.open(
-            "./public/" + folder + "/_cssChanges.css",
+            "./public/" + folder + "/_styles.scss",
             "w",
             function (err, file) {
               if (err) throw err;
