@@ -5,7 +5,7 @@ const path = require("path");
 const concat = require("concat");
 
 const folder = process.argv[2];
-const basedir = path.join(__dirname + "/../public/" + folder + "/"); // or which ever base directory you prefer
+const basedir = path.join(__dirname + "/public/" + folder + "/"); // or which ever base directory you prefer
 
 const files = [
   basedir + "assets/dist/_tailwind.css",
@@ -29,7 +29,7 @@ async.map(files, fs.readFile, function (err, files) {
 
     fs.writeFile(basedir + "assets/dist/_index.html", $.html(), function (err) {
       if (err) return console.log(err);
-      console.log("HTML Updated");
+      console.log("HTML Compiled");
     });
   });
 });
